@@ -61,7 +61,7 @@
                       <?php if ($hs['sts_resep'] == 0) { ?>
                         <a href="?hal=data_pilih_obat&kd_resep=<?= $hs['kd_resep']; ?>" class="btn btn-info btn-sm">Buat Resep Obat</a>
                       <?php } ?>
-                      <a href="?hal=detail_resep&kd_resep=<?= $hs['kd_resep']; ?>&nm_pasien=<?= $hs['nm_pasien']; ?>&tgl_resep=<?= $hs['tgl_resep']; ?>&nm_poli=<?= $hs['nm_poli']; ?>" class="btn btn-success btn-sm">Detail Resep</a>
+                      <a href="?hal=detail_resep&kd_resep=<?= $hs['kd_resep']; ?>&nm_pasien=<?= $hs['nm_pasien']; ?>&tgl_resep=<?= $hs['tgl_resep']; ?>&nm_poli=<?= $hs['nm_poli']; ?>&kategori=<?= $hs['kategori']; ?>" class="btn btn-success btn-sm">Detail Resep</a>
                       <a href="?hal=edit_resep&kd_resep=<?= $hs['kd_resep']; ?>" class="btn btn-primary btn-sm">Edit</a>
                       <a href="?hal=hapus_resep&kd_resep=<?= $hs['kd_resep']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin Ingin Menghapus Data ?')">Hapus</a>
                     </td>
