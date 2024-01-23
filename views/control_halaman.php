@@ -183,6 +183,13 @@ switch ($page) {
         include "resep/detail_resep.php";
         break;
 
+    case 'apoteker_resep':
+        include "resep/apoteker_resep.php";
+        break;
+    case 'detail_resep_apoteker':
+        include "resep/detail_resep_apoteker.php";
+        break;
+
 
     case 'data_bayar':
         include "bayar/data_bayar.php";

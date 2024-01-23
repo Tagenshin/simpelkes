@@ -112,11 +112,10 @@ if (!isset($_SESSION['username'])) {
                   <ul class="nav child_menu">
                     <!-- <li><a href="?hal=data_daftar">Pendaftaran</a></li> -->
                     <li><a href="?hal=data_periksa">Pemeriksaan</a></li>
-                    <!-- <li><a href="?hal=data_resep">Resep Obat</a></li> -->
+                    <li><a href="?hal=data_resep">Resep Obat</a></li>
                     <!-- <li><a href="?hal=#">Pembayaran</a></li> -->
                   </ul>
                 </li>
-
 
                 <li><a><i class="fa fa-bar-chart-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
