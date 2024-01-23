@@ -1,7 +1,7 @@
 <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Data <small>Resep Obat</small></h2>
+            <h2>Data <small>Obat</small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -22,38 +22,37 @@
                 <div class="col-sm-12">
                     <div class="card-box table-responsive">
                         <p class="text-muted font-13 m-b-30">
-                            <!-- <a href="?hal=data_resep1" class="btn btn-success btn-sm">Cek Data Pemeriksaan Baru</a> -->
+                            <a href="?hal=input_obat" class="btn btn-success btn-sm">Tambah Data Obat</a>
                         </p>
                         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Kode Resep</th>
-                                    <th>Nama</th>
-                                    <th>Keterangan</th>
-                                    <th colspan="">Act</th>
+                                    <th>ID Obat</th>
+                                    <th>Deskripsi</th>
+                                    <th>Satuan</th>
+                                    <th>Harga</th>
+                                    <th>Ketersediaan</th>
+                                    <th>Act.</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 include '../koneksi.php';
                                 $no = 1;
-                                // $data = mysqli_query($conn, "SELECT * FROM tb_poli,tb_pasien,tb_kpasien,tb_daftar,tb_periksa,tb_resep WHERE tb_kpasien.kd_kpasien=tb_daftar.kd_kpasien and tb_pasien.nik=tb_daftar.nik and tb_periksa.kd_periksa=tb_resep.kd_periksa and tb_poli.kd_poli=tb_daftar.kd_poli and tb_resep.sts_resep='1' ");
-                                $data = mysqli_query($conn, "SELECT * FROM tb_resep, tb_periksa, tb_pasien WHERE tb_periksa.kd_periksa=tb_resep.kd_resep and tb_pasien.nik=tb_periksa.nik ");
+                                $data = mysqli_query($conn, "SELECT * FROM tb_obat");
                                 while ($hs = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
-                                        <td><?= $hs['kd_resep']; ?></td>
-                                        <td><?= $hs['nm_pasien']; ?></td>
-                                        <td><?= $hs['ket_resep']; ?></td>
+                                        <td><?= $hs['kd_obat']; ?></td>
+                                        <td><?= $hs['nm_obat']; ?></td>
+                                        <td><?= $hs['satuan']; ?></td>
+                                        <td><?= $hs['harga']; ?></td>
+                                        <td><?= $hs['ketersediaan']; ?></td>
                                         <td>
-                                            <!-- <?php if ($hs['sts_resep'] == 0) { ?>
-                                                <a href="?hal=data_pilih_obat&kd_resep=<?= $hs['kd_resep']; ?>" class="btn btn-info btn-sm">Buat Resep Obat</a>
-                                            <?php } ?> -->
-                                            <a href="?hal=detail_resep_apoteker&kd_resep=<?= $hs['kd_resep']; ?>&nm_pasien=<?= $hs['nm_pasien']; ?>&tgl_resep=<?= $hs['tgl_resep']; ?>&nm_poli=<?= $hs['nm_poli']; ?>" class="btn btn-success btn-sm">Detail Resep</a>
-                                            <a href="?hal=hapus_resep&kd_resep=<?= $hs['kd_resep']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin Ingin Menghapus Data ?')">Hapus</a>
-
+                                            <a href="?hal=edit_obat&kd_obat=<?= $hs['kd_obat']; ?>" class="btn btn-primary btn-sm">Edit</a>
+                                            <a href="?hal=hapus_obat&kd_obat=<?= $hs['kd_obat']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin Ingin Menghapus Data ?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

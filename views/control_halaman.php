@@ -189,6 +189,9 @@ switch ($page) {
     case 'detail_resep_apoteker':
         include "resep/detail_resep_apoteker.php";
         break;
+    case 'data_obat_keluar':
+        include "obat/data_obat_keluar.php";
+        break;
 
 
     case 'data_bayar':

@@ -111,8 +111,8 @@ if (!isset($_SESSION['username'])) {
                 <li><a><i class="fa fa-edit"></i> Proses <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <!-- <li><a href="?hal=data_daftar">Pendaftaran</a></li> -->
-                    <!-- <li><a href="?hal=data_obat">Data Obat</a></li> -->
                     <li><a href="?hal=apoteker_resep">Resep Obat</a></li>
+                    <li><a href="?hal=data_obat_keluar">Data Obat Keluar</a></li>
                     <!-- <li><a href="?hal=#">Pembayaran</a></li> -->
                   </ul>
                 </li>
