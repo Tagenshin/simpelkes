@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2024 at 05:06 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Waktu pembuatan: 26 Jan 2024 pada 09.34
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_bayar`
+-- Struktur dari tabel `tb_bayar`
 --
 
 CREATE TABLE `tb_bayar` (
@@ -36,7 +36,7 @@ CREATE TABLE `tb_bayar` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_bayar`
+-- Dumping data untuk tabel `tb_bayar`
 --
 
 INSERT INTO `tb_bayar` (`kd_bayar`, `kd_resep`, `tot_biaya`, `tgl_trans`, `sts_trans`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `tb_bayar` (`kd_bayar`, `kd_resep`, `tot_biaya`, `tgl_trans`, `sts_t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_daftar`
+-- Struktur dari tabel `tb_daftar`
 --
 
 CREATE TABLE `tb_daftar` (
@@ -60,21 +60,16 @@ CREATE TABLE `tb_daftar` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_daftar`
+-- Dumping data untuk tabel `tb_daftar`
 --
 
 INSERT INTO `tb_daftar` (`kd_kunj`, `nik`, `tgl_berobat`, `kd_poli`, `kd_kpasien`, `sts_daftar`, `keluhan`) VALUES
-('202401150002', '01', '2024-01-15', 'POLI001', 'KP001', 1, 'sakit perut'),
-('202401150001', '1605020309990007', '1999-09-03', 'POLI001', 'KP002', 1, 'pusing'),
-('202401260004', '23324365768787', '2024-01-26', 'POLI001', 'KP001', 1, 'sakit hati'),
-('202401260003', '1509999875678', '2024-01-26', 'POLI001', 'KP002', 1, 'Sakit hati'),
-('202401260005', '1605020309990007', '2024-01-26', 'POLI001', 'KP002', 1, 'sakit ati'),
-('202401260006', '23324365768787', '2024-01-26', 'POLI001', 'KP002', 1, 'sakit ati');
+('202401260001', '1509999875678', '2024-01-26', 'POLI001', 'KP002', 1, 'd');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kpasien`
+-- Struktur dari tabel `tb_kpasien`
 --
 
 CREATE TABLE `tb_kpasien` (
@@ -85,7 +80,7 @@ CREATE TABLE `tb_kpasien` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_kpasien`
+-- Dumping data untuk tabel `tb_kpasien`
 --
 
 INSERT INTO `tb_kpasien` (`kd_kpasien`, `kategori`, `ket`, `biaya`) VALUES
@@ -95,7 +90,7 @@ INSERT INTO `tb_kpasien` (`kd_kpasien`, `kategori`, `ket`, `biaya`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_obat`
+-- Struktur dari tabel `tb_obat`
 --
 
 CREATE TABLE `tb_obat` (
@@ -107,18 +102,18 @@ CREATE TABLE `tb_obat` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_obat`
+-- Dumping data untuk tabel `tb_obat`
 --
 
 INSERT INTO `tb_obat` (`kd_obat`, `nm_obat`, `satuan`, `harga`, `ketersediaan`) VALUES
-('A10001', 'Amoxicillin', 'Botol', 1100, 42),
-('A10002', 'Asetosal', 'Tablet', 1090, 85),
+('A10001', 'Amoxicillin', 'Botol', 1100, 41),
+('A10002', 'Asetosal', 'Tablet', 1090, 83),
 ('AA0003', 'Bodrex', 'Tablet', 15000, 95);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pasien`
+-- Struktur dari tabel `tb_pasien`
 --
 
 CREATE TABLE `tb_pasien` (
@@ -132,7 +127,7 @@ CREATE TABLE `tb_pasien` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_pasien`
+-- Dumping data untuk tabel `tb_pasien`
 --
 
 INSERT INTO `tb_pasien` (`nik`, `nm_pasien`, `jk`, `agama`, `tgl_lahir`, `no_tlp`, `alamat`) VALUES
@@ -144,7 +139,7 @@ INSERT INTO `tb_pasien` (`nik`, `nm_pasien`, `jk`, `agama`, `tgl_lahir`, `no_tlp
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pegawai`
+-- Struktur dari tabel `tb_pegawai`
 --
 
 CREATE TABLE `tb_pegawai` (
@@ -157,7 +152,7 @@ CREATE TABLE `tb_pegawai` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_pegawai`
+-- Dumping data untuk tabel `tb_pegawai`
 --
 
 INSERT INTO `tb_pegawai` (`nip`, `nik`, `nm_pegawai`, `jk`, `agama`, `alamat`) VALUES
@@ -173,7 +168,7 @@ INSERT INTO `tb_pegawai` (`nip`, `nik`, `nm_pegawai`, `jk`, `agama`, `alamat`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_periksa`
+-- Struktur dari tabel `tb_periksa`
 --
 
 CREATE TABLE `tb_periksa` (
@@ -190,17 +185,16 @@ CREATE TABLE `tb_periksa` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_periksa`
+-- Dumping data untuk tabel `tb_periksa`
 --
 
 INSERT INTO `tb_periksa` (`kd_periksa`, `kd_kunj`, `nik`, `keluhan`, `diagnosa`, `tindakan`, `pemeriksaan`, `ket`, `tgl_periksa`, `sts_periksa`) VALUES
-(9, '202401260006', '23324365768787', 'sakit ati', 'stress berat', 'beri obat', 'diperiksa', '-', '2024-01-26', 1),
-(8, '202401260005', '1605020309990007', 'pusing pusing', 'penyakit ginjal', 'beri obat', 'diperiksa', '-', '2024-01-26', 1);
+(1, '202401260001', '1509999875678', 'd', 'd', 'd', 'd', 'd', '2024-01-26', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_poli`
+-- Struktur dari tabel `tb_poli`
 --
 
 CREATE TABLE `tb_poli` (
@@ -209,7 +203,7 @@ CREATE TABLE `tb_poli` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_poli`
+-- Dumping data untuk tabel `tb_poli`
 --
 
 INSERT INTO `tb_poli` (`kd_poli`, `nm_poli`) VALUES
@@ -219,7 +213,7 @@ INSERT INTO `tb_poli` (`kd_poli`, `nm_poli`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_resep`
+-- Struktur dari tabel `tb_resep`
 --
 
 CREATE TABLE `tb_resep` (
@@ -231,19 +225,16 @@ CREATE TABLE `tb_resep` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_resep`
+-- Dumping data untuk tabel `tb_resep`
 --
 
 INSERT INTO `tb_resep` (`kd_resep`, `kd_periksa`, `tgl_resep`, `ket_resep`, `sts_resep`) VALUES
-(4, 4, '2024-01-15', 'yy', 1),
-(5, 5, '2024-01-23', 'oke', 0),
-(6, 8, '2024-01-26', 'diberi respe', 1),
-(7, 9, '2024-01-26', 'resep dibuat', 0);
+(1, 1, '2024-01-26', 'd', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_resep_detail`
+-- Struktur dari tabel `tb_resep_detail`
 --
 
 CREATE TABLE `tb_resep_detail` (
@@ -258,19 +249,16 @@ CREATE TABLE `tb_resep_detail` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_resep_detail`
+-- Dumping data untuk tabel `tb_resep_detail`
 --
 
 INSERT INTO `tb_resep_detail` (`kd_detail_resep`, `kd_resep`, `kd_obat`, `tgl_dt_resep`, `jlh`, `hrg_satuan`, `sisa_obat`, `ket_detail`) VALUES
-(12, '7', 'A10001', '2024-01-26 04:04:26', 3, 1100, 42, '-'),
-(11, '7', 'A10002', '2024-01-26 04:04:01', 10, 1090, 85, '-'),
-(9, '7', 'AA0003', '0000-00-00 00:00:00', 3, 15000, 95, '-'),
-(10, '7', 'A10002', '2024-01-26 03:55:08', 5, 1090, 95, '-');
+(1, '1', 'A10002', '2024-01-26 08:27:22', 2, 1090, 83, 'd');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -283,7 +271,7 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
 INSERT INTO `tb_user` (`nip`, `kd_poli`, `username`, `email`, `level`, `password`) VALUES
@@ -302,98 +290,98 @@ INSERT INTO `tb_user` (`nip`, `kd_poli`, `username`, `email`, `level`, `password
 --
 
 --
--- Indexes for table `tb_bayar`
+-- Indeks untuk tabel `tb_bayar`
 --
 ALTER TABLE `tb_bayar`
   ADD PRIMARY KEY (`kd_bayar`);
 
 --
--- Indexes for table `tb_daftar`
+-- Indeks untuk tabel `tb_daftar`
 --
 ALTER TABLE `tb_daftar`
   ADD PRIMARY KEY (`kd_kunj`);
 
 --
--- Indexes for table `tb_kpasien`
+-- Indeks untuk tabel `tb_kpasien`
 --
 ALTER TABLE `tb_kpasien`
   ADD PRIMARY KEY (`kd_kpasien`);
 
 --
--- Indexes for table `tb_obat`
+-- Indeks untuk tabel `tb_obat`
 --
 ALTER TABLE `tb_obat`
   ADD PRIMARY KEY (`kd_obat`);
 
 --
--- Indexes for table `tb_pasien`
+-- Indeks untuk tabel `tb_pasien`
 --
 ALTER TABLE `tb_pasien`
   ADD PRIMARY KEY (`nik`);
 
 --
--- Indexes for table `tb_pegawai`
+-- Indeks untuk tabel `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
   ADD PRIMARY KEY (`nip`);
 
 --
--- Indexes for table `tb_periksa`
+-- Indeks untuk tabel `tb_periksa`
 --
 ALTER TABLE `tb_periksa`
   ADD PRIMARY KEY (`kd_periksa`);
 
 --
--- Indexes for table `tb_poli`
+-- Indeks untuk tabel `tb_poli`
 --
 ALTER TABLE `tb_poli`
   ADD PRIMARY KEY (`kd_poli`);
 
 --
--- Indexes for table `tb_resep`
+-- Indeks untuk tabel `tb_resep`
 --
 ALTER TABLE `tb_resep`
   ADD PRIMARY KEY (`kd_resep`);
 
 --
--- Indexes for table `tb_resep_detail`
+-- Indeks untuk tabel `tb_resep_detail`
 --
 ALTER TABLE `tb_resep_detail`
   ADD PRIMARY KEY (`kd_detail_resep`);
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`nip`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_bayar`
+-- AUTO_INCREMENT untuk tabel `tb_bayar`
 --
 ALTER TABLE `tb_bayar`
   MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_periksa`
+-- AUTO_INCREMENT untuk tabel `tb_periksa`
 --
 ALTER TABLE `tb_periksa`
-  MODIFY `kd_periksa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `kd_periksa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tb_resep`
+-- AUTO_INCREMENT untuk tabel `tb_resep`
 --
 ALTER TABLE `tb_resep`
-  MODIFY `kd_resep` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `kd_resep` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tb_resep_detail`
+-- AUTO_INCREMENT untuk tabel `tb_resep_detail`
 --
 ALTER TABLE `tb_resep_detail`
-  MODIFY `kd_detail_resep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `kd_detail_resep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
