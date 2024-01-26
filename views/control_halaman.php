@@ -83,6 +83,12 @@ switch ($page) {
     case 'lap_obat':
         include "obat/lap_obat.php";
         break;
+    case 'data_obat_keluar':
+        include "obat/data_obat_keluar.php";
+        break;
+    case 'cetak_obat_keluar':
+        include "obat/cetak_obat_keluar.php";
+        break;
 
     case 'data_pasien':
         include "pasien/data_pasien.php";
@@ -189,9 +195,7 @@ switch ($page) {
     case 'detail_resep_apoteker':
         include "resep/detail_resep_apoteker.php";
         break;
-    case 'data_obat_keluar':
-        include "obat/data_obat_keluar.php";
-        break;
+    
 
 
     case 'data_bayar':

@@ -22,7 +22,7 @@
         <div class="col-sm-12">
           <div class="card-box table-responsive">
             <p class="text-muted font-13 m-b-30">
-              <a href="?hal=data_resep" class="btn btn-success btn-sm">Kembali</a>
+              <a href="?hal=apoteker_resep" class="btn btn-success btn-sm">Kembali</a>
               <a href="resep/cetak_resep.php?kd_resep=<?= $_GET['kd_resep']; ?>&nm_pasien=<?= $_GET['nm_pasien']; ?>&nm_poli=<?= $_GET['nm_poli']; ?>&tgl_resep=<?= $_GET['tgl_resep']; ?>" class="btn btn-success btn-sm" target="_blank">Cetak Resep</a>
             </p>
             <p>

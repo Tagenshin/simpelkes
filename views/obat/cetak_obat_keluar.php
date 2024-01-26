@@ -1,30 +1,30 @@
+<script>
+    window.print();
+</script>
+<?php ini_set('display_errors', 0); ?>
+
+<?php
+require_once __DIR__ . '../../mpdf_v8.0.3/vendor/autoload.php';
+$mpdf = new \Mpdf\Mpdf();
+$mpdf->AddPage("P", "", "", "", "", "15", "15", "15", "15", "", "", "", "", "", "", "", "", "", "", "", "A4");
+ob_start();
+?>
+<p align='center'><b>LAPORAN DATA OBAT<br>
+    </b></p>
+<hr width="80%">
 <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
-        <div class="x_title">
-            <h2>Data <small>Obat Keluar</small></h2>
-            <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-                <!-- <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Settings 1</a>
-                        <a class="dropdown-item" href="#">Settings 2</a>
-                    </div>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                </li> -->
-            </ul>
+        <!-- <div class="x_title">
+            <h2>Data <small>Obat</small></h2>
+
             <div class="clearfix"></div>
-        </div>
+        </div> -->
         <div class="x_content">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card-box table-responsive">
-                        <p class="text-muted font-13 m-b-30">
-                            <a href="?hal=cetak_obat_keluar" target="_blank" class="btn btn-success btn-sm">Cetak</a>
-                        </p>
-                        <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+
+                        <table id="datatable" border="1" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -33,12 +33,11 @@
                                     <th>Satuan</th>
                                     <th>Harga</th>
                                     <th>Ketersediaan</th>
-                                    <!-- <th>Act.</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                include '../koneksi.php';
+                                include '../../koneksi.php';
                                 $no = 1;
                                 $data = mysqli_query($conn, "SELECT * FROM tb_obat");
                                 while ($hs = mysqli_fetch_array($data)) {
@@ -50,10 +49,7 @@
                                         <td><?= $hs['satuan']; ?></td>
                                         <td><?= $hs['harga']; ?></td>
                                         <td><?= $hs['ketersediaan']; ?></td>
-                                        <!-- <td>
-                                            <a href="?hal=edit_obat&kd_obat=<?= $hs['kd_obat']; ?>" class="btn btn-primary btn-sm">Edit</a>
-                                            <a href="?hal=hapus_obat&kd_obat=<?= $hs['kd_obat']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin Ingin Menghapus Data ?')">Hapus</a>
-                                        </td> -->
+
                                     </tr>
                                 <?php } ?>
 
@@ -65,3 +61,9 @@
         </div>
     </div>
 </div>
+<?php
+$html = ob_get_contents();
+ob_end_clean();
+$mpdf->WriteHTML(utf8_encode($html));
+$mpdf->Output();
+?>
