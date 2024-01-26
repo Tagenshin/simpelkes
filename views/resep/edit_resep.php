@@ -33,7 +33,13 @@ if (isset($_POST['edit'])) {
 include '../koneksi.php';
 $kd_resep = $_GET['kd_resep'];
 
-$data = mysqli_query($conn, "SELECT * FROM tb_pasien,tb_daftar,tb_periksa,tb_resep WHERE tb_pasien.nik=tb_daftar.nik && tb_daftar.kd_kunj=tb_periksa.kd_kunj && tb_resep.kd_resep='$kd_resep'");
+// $data = mysqli_query($conn, "SELECT * FROM tb_pasien,tb_daftar,tb_periksa,tb_resep WHERE tb_pasien.nik=tb_daftar.nik && tb_daftar.kd_kunj=tb_periksa.kd_kunj && tb_resep.kd_resep='$kd_resep'");
+$data = mysqli_query($conn, "SELECT * FROM tb_pasien
+    JOIN tb_daftar ON tb_pasien.nik = tb_daftar.nik
+    JOIN tb_periksa ON tb_daftar.kd_kunj = tb_periksa.kd_kunj
+    JOIN tb_resep ON tb_periksa.kd_periksa = tb_resep.kd_periksa
+    WHERE tb_resep.kd_resep = '$kd_resep'");
+
 while ($hs = mysqli_fetch_array($data)) {
 ?>
   <!-- form -->
