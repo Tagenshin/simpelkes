@@ -79,7 +79,7 @@ while ($hs = mysqli_fetch_array($data)) {
               <div class="col-md-6 col-sm-6 ">
                 <input name="kd_resep" type="text" id="kd_resep" required="required" class="form-control" readonly value="<?= $_GET['kd_resep']; ?>">
 
-                <!-- <input name="kd_kunj" type="text" id="kd_kunj" required="required" class="form-control" readonly value="<?= $hs['kd_kunj']; ?>"> -->
+                <input name="kd_periksa" type="hidden" id="kd_periksa" required="required" class="form-control" readonly value="<?= $hs['kd_periksa']; ?>">
               </div>
             </div>
             <!-- <div class="item form-group">
