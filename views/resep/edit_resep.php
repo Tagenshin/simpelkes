@@ -73,10 +73,10 @@ $hs = mysqli_fetch_array($data);
             <div class="col-md-6 col-sm-6 ">
               <input name="kd_resep" type="text" id="kd_resep" required="required" class="form-control" readonly value="<?= $_GET['kd_resep']; ?>">
 
-              <!-- <input name="kd_kunj" type="text" id="kd_kunj" required="required" class="form-control" readonly value="<?= $hs['kd_kunj']; ?>"> -->
+                <!-- <input name="kd_kunj" type="text" id="kd_kunj" required="required" class="form-control" readonly value="<?= $hs['kd_kunj']; ?>"> -->
+              </div>
             </div>
-          </div>
-          <!-- <div class="item form-group">
+            <!-- <div class="item form-group">
               <label class="col-form-label col-md-3 col-sm-3 label-align" for="nik">NIK KTP <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
