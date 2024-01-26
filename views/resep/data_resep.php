@@ -40,14 +40,18 @@
                 include '../koneksi.php';
                 $no = 1;
                 // $data = mysqli_query($conn, "SELECT * FROM tb_poli,tb_pasien,tb_kpasien,tb_daftar,tb_periksa,tb_resep WHERE tb_kpasien.kd_kpasien=tb_daftar.kd_kpasien and tb_pasien.nik=tb_daftar.nik and tb_periksa.kd_periksa=tb_resep.kd_periksa and tb_poli.kd_poli=tb_daftar.kd_poli and tb_resep.sts_resep='1' ");
-                $data = mysqli_query($conn, "SELECT DISTINCT * 
+                $data = mysqli_query($conn, "SELECT 
+                tb_resep.kd_resep, 
+                tb_pasien.nm_pasien, 
+                tb_kpasien.kategori,
+                tb_periksa.ket
                 FROM tb_resep
                 JOIN tb_periksa ON tb_periksa.kd_periksa = tb_resep.kd_periksa
                 JOIN tb_pasien ON tb_periksa.nik = tb_pasien.nik
                 JOIN tb_daftar ON tb_daftar.nik = tb_pasien.nik
                 JOIN tb_kpasien ON tb_daftar.kd_kpasien = tb_kpasien.kd_kpasien");
 
-                
+
 
 
                 while ($hs = mysqli_fetch_array($data)) {

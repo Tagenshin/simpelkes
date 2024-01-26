@@ -12,7 +12,7 @@ if (isset($_POST['edit'])) {
   $pemeriksaan = $_POST['pemeriksaan'];
   $ket = $_POST['ket'];
 
-  $data = mysqli_query($conn, "UPDATE tb_periksa SET kd_periksa='$kd_periksa',kd_kunj='$kd_kunj', nik='$nik',keluhan='$keluhan',diagnosa='$diagnosa',tindakan='$tindakan',pemeriksaan='$pemeriksaan',ket='$ket' WHERE kd_periksa='$kd_periksa'");
+  $data = mysqli_query($conn, "UPDATE tb_periksa SET ket='$ket' WHERE kd_periksa='$kd_periksa'");
   if ($data) {
     echo "
         <script language=javascript>
@@ -67,16 +67,17 @@ $hs = mysqli_fetch_array($data);
         <br />
         <form action="" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
+          <input type="hidden" name="kd_periksa" value="<?= $hs['kd_periksa'] ?>">
           <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="kd_resep">Kode Resep <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 ">
               <input name="kd_resep" type="text" id="kd_resep" required="required" class="form-control" readonly value="<?= $_GET['kd_resep']; ?>">
 
-                <!-- <input name="kd_kunj" type="text" id="kd_kunj" required="required" class="form-control" readonly value="<?= $hs['kd_kunj']; ?>"> -->
-              </div>
+              <!-- <input name="kd_kunj" type="text" id="kd_kunj" required="required" class="form-control" readonly value="<?= $hs['kd_kunj']; ?>"> -->
             </div>
-            <!-- <div class="item form-group">
+          </div>
+          <!-- <div class="item form-group">
               <label class="col-form-label col-md-3 col-sm-3 label-align" for="nik">NIK KTP <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
