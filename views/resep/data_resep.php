@@ -47,6 +47,8 @@
                 JOIN tb_daftar ON tb_daftar.nik = tb_pasien.nik
                 JOIN tb_kpasien ON tb_daftar.kd_kpasien = tb_kpasien.kd_kpasien");
 
+                
+
 
                 while ($hs = mysqli_fetch_array($data)) {
                 ?>
@@ -55,7 +57,7 @@
                     <td><?= $hs['kd_resep']; ?></td>
                     <td><?= $hs['nm_pasien']; ?></td>
                     <td><?= $hs['kategori']; ?></td>
-                    <td><?= $hs['ket_resep']; ?></td>
+                    <td><?= $hs['ket']; ?></td>
                     <td>
                       <?php if ($hs['sts_resep'] == 0) { ?>
                         <a href="?hal=data_pilih_obat&kd_resep=<?= $hs['kd_resep']; ?>" class="btn btn-info btn-sm">Buat Resep Obat</a>
