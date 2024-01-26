@@ -17,13 +17,13 @@ if (isset($_POST['edit'])) {
     echo "
         <script language=javascript>
           alert('Data Berhasil diedit');
-          document.location.href='?hal=data_periksa';
+          document.location.href='?hal=data_resep';
         </script>";
   } else {
     echo "
           <script language=javascript>
             alert('Data Gagal Diedit');
-            document.location.href='?hal=edit_periksa'; 
+            document.location.href='?hal=edit_resep'; 
           </script>";
   }
 }
@@ -45,7 +45,7 @@ while ($hs = mysqli_fetch_array($data)) {
     <div class="col-md-12 col-sm-12 ">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Form<small>Edit Data Pemeriksaan Pasien</small></h2>
+          <h2>Form<small>Edit Data Resep</small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -68,21 +68,21 @@ while ($hs = mysqli_fetch_array($data)) {
           <form action="" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
             <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="kd_kunj">No. Kunjungan <span class="required">*</span>
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="kd_resep">Kode Resep <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
-                <input name="kd_periksa" type="hidden" id="kd_periksa" required="required" class="form-control" readonly value="<?= $hs['kd_periksa']; ?>">
+                <input name="kd_resep" type="text" id="kd_resep" required="required" class="form-control" readonly value="<?= $_GET['kd_resep']; ?>">
 
-                <input name="kd_kunj" type="text" id="kd_kunj" required="required" class="form-control" readonly value="<?= $hs['kd_kunj']; ?>">
+                <!-- <input name="kd_kunj" type="text" id="kd_kunj" required="required" class="form-control" readonly value="<?= $hs['kd_kunj']; ?>"> -->
               </div>
             </div>
-            <div class="item form-group">
+            <!-- <div class="item form-group">
               <label class="col-form-label col-md-3 col-sm-3 label-align" for="nik">NIK KTP <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
                 <input name="nik" type="text" id="nik" required="required" class="form-control" readonly value="<?= $hs['nik']; ?>">
               </div>
-            </div>
+            </div> -->
             <div class="item form-group">
               <label class="col-form-label col-md-3 col-sm-3 label-align" for="nm_pasien">Nama Pasien <span class="required">*</span>
               </label>
@@ -93,7 +93,7 @@ while ($hs = mysqli_fetch_array($data)) {
 
 
 
-            <div class="item form-group">
+            <!-- <div class="item form-group">
               <label class="col-form-label col-md-3 col-sm-3 label-align" for="tgl_berobat">Tanggal Berobat <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
@@ -121,12 +121,12 @@ while ($hs = mysqli_fetch_array($data)) {
               <div class="col-md-6 col-sm-6 ">
                 <textarea name="tindakan" id="tindakan" required="required" class="form-control"><?= $hs['tindakan']; ?></textarea>
               </div>
-            </div>
+            </div> -->
             <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="pemeriksaan">Pemeriksaan <span class="required">*</span>
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="katogori">Kategori Pasien <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
-                <textarea name="pemeriksaan" id="pemeriksaan" required="required" class="form-control"><?= $hs['pemeriksaan']; ?></textarea>
+                <input name="katogori" type="text" id="katogori" required="required" class="form-control" readonly value="<?= $_GET['kategori']; ?>">
               </div>
             </div>
             <div class="item form-group">
@@ -143,7 +143,7 @@ while ($hs = mysqli_fetch_array($data)) {
               <div class="col-md-6 col-sm-6 offset-md-3">
                 <button name="edit" type="submit" class="btn btn-success btn-sm">Simpan</button>
                 <!-- <button class="btn btn-primary btn-sm" type="reset">Reset</button> -->
-                <a href="?hal=data_periksa" class="btn btn-secondary btn-sm" type="button">Kembali</a>
+                <a href="?hal=data_resep" class="btn btn-secondary btn-sm" type="button">Kembali</a>
               </div>
             </div>
 
