@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2024 at 12:27 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jan 26, 2024 at 05:06 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,15 @@ CREATE TABLE `tb_bayar` (
   `tot_biaya` int(11) NOT NULL,
   `tgl_trans` date NOT NULL,
   `sts_trans` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_bayar`
+--
+
+INSERT INTO `tb_bayar` (`kd_bayar`, `kd_resep`, `tot_biaya`, `tgl_trans`, `sts_trans`) VALUES
+(4, 4, 31900, '2024-01-26', '0'),
+(5, 6, 25300, '2024-01-26', '0');
 
 -- --------------------------------------------------------
 
@@ -49,7 +57,7 @@ CREATE TABLE `tb_daftar` (
   `kd_kpasien` varchar(10) NOT NULL,
   `sts_daftar` int(2) NOT NULL,
   `keluhan` longtext NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_daftar`
@@ -57,7 +65,11 @@ CREATE TABLE `tb_daftar` (
 
 INSERT INTO `tb_daftar` (`kd_kunj`, `nik`, `tgl_berobat`, `kd_poli`, `kd_kpasien`, `sts_daftar`, `keluhan`) VALUES
 ('202401150002', '01', '2024-01-15', 'POLI001', 'KP001', 1, 'sakit perut'),
-('202401150001', '1605020309990007', '1999-09-03', 'POLI001', 'KP002', 1, 'pusing');
+('202401150001', '1605020309990007', '1999-09-03', 'POLI001', 'KP002', 1, 'pusing'),
+('202401260004', '23324365768787', '2024-01-26', 'POLI001', 'KP001', 1, 'sakit hati'),
+('202401260003', '1509999875678', '2024-01-26', 'POLI001', 'KP002', 1, 'Sakit hati'),
+('202401260005', '1605020309990007', '2024-01-26', 'POLI001', 'KP002', 1, 'sakit ati'),
+('202401260006', '23324365768787', '2024-01-26', 'POLI001', 'KP002', 1, 'sakit ati');
 
 -- --------------------------------------------------------
 
@@ -70,7 +82,7 @@ CREATE TABLE `tb_kpasien` (
   `kategori` varchar(20) NOT NULL,
   `ket` varchar(50) NOT NULL,
   `biaya` int(12) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_kpasien`
@@ -78,7 +90,7 @@ CREATE TABLE `tb_kpasien` (
 
 INSERT INTO `tb_kpasien` (`kd_kpasien`, `kategori`, `ket`, `biaya`) VALUES
 ('KP001', 'ASKES', 'Asuransi Kesehatan', 5000),
-('KP002', 'GAKIN', 'Keluarga Miskin', 500);
+('KP002', 'UMUM', 'Keluarga Miskin', 500);
 
 -- --------------------------------------------------------
 
@@ -92,16 +104,16 @@ CREATE TABLE `tb_obat` (
   `satuan` varchar(10) NOT NULL,
   `harga` int(10) NOT NULL,
   `ketersediaan` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_obat`
 --
 
 INSERT INTO `tb_obat` (`kd_obat`, `nm_obat`, `satuan`, `harga`, `ketersediaan`) VALUES
-('A10001', 'Amoxicillin', 'Botol', 1100, 99),
-('A10002', 'Asetosal', 'Tablet', 1090, 100),
-('AA0003', 'Bodrex', 'Tablet', 15000, 98);
+('A10001', 'Amoxicillin', 'Botol', 1100, 42),
+('A10002', 'Asetosal', 'Tablet', 1090, 85),
+('AA0003', 'Bodrex', 'Tablet', 15000, 95);
 
 -- --------------------------------------------------------
 
@@ -117,7 +129,7 @@ CREATE TABLE `tb_pasien` (
   `tgl_lahir` date NOT NULL,
   `no_tlp` varchar(12) NOT NULL,
   `alamat` longtext NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_pasien`
@@ -142,7 +154,7 @@ CREATE TABLE `tb_pegawai` (
   `jk` varchar(10) NOT NULL,
   `agama` varchar(20) NOT NULL,
   `alamat` longtext NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_pegawai`
@@ -175,15 +187,15 @@ CREATE TABLE `tb_periksa` (
   `ket` longtext NOT NULL,
   `tgl_periksa` date NOT NULL,
   `sts_periksa` int(2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_periksa`
 --
 
 INSERT INTO `tb_periksa` (`kd_periksa`, `kd_kunj`, `nik`, `keluhan`, `diagnosa`, `tindakan`, `pemeriksaan`, `ket`, `tgl_periksa`, `sts_periksa`) VALUES
-(5, '202401150001', '1605020309990007', 'pusing pusing', 'malaria', 'beri obat', 'di periksa', 'beri obat amoxilin', '2024-01-15', 0),
-(4, '202401150002', '01', 'sakit perut', '-', '-', '-', '-', '2024-01-15', 1);
+(9, '202401260006', '23324365768787', 'sakit ati', 'stress berat', 'beri obat', 'diperiksa', '-', '2024-01-26', 1),
+(8, '202401260005', '1605020309990007', 'pusing pusing', 'penyakit ginjal', 'beri obat', 'diperiksa', '-', '2024-01-26', 1);
 
 -- --------------------------------------------------------
 
@@ -194,7 +206,7 @@ INSERT INTO `tb_periksa` (`kd_periksa`, `kd_kunj`, `nik`, `keluhan`, `diagnosa`,
 CREATE TABLE `tb_poli` (
   `kd_poli` varchar(12) NOT NULL,
   `nm_poli` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_poli`
@@ -216,14 +228,17 @@ CREATE TABLE `tb_resep` (
   `tgl_resep` date NOT NULL,
   `ket_resep` longtext NOT NULL,
   `sts_resep` int(2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_resep`
 --
 
 INSERT INTO `tb_resep` (`kd_resep`, `kd_periksa`, `tgl_resep`, `ket_resep`, `sts_resep`) VALUES
-(4, 4, '2024-01-15', 'yy', 0);
+(4, 4, '2024-01-15', 'yy', 1),
+(5, 5, '2024-01-23', 'oke', 0),
+(6, 8, '2024-01-26', 'diberi respe', 1),
+(7, 9, '2024-01-26', 'resep dibuat', 0);
 
 -- --------------------------------------------------------
 
@@ -235,10 +250,22 @@ CREATE TABLE `tb_resep_detail` (
   `kd_detail_resep` int(11) NOT NULL,
   `kd_resep` varchar(10) NOT NULL,
   `kd_obat` varchar(10) NOT NULL,
+  `tgl_dt_resep` timestamp NOT NULL DEFAULT current_timestamp(),
   `jlh` int(10) NOT NULL,
   `hrg_satuan` int(11) NOT NULL,
+  `sisa_obat` int(11) NOT NULL,
   `ket_detail` longtext NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_resep_detail`
+--
+
+INSERT INTO `tb_resep_detail` (`kd_detail_resep`, `kd_resep`, `kd_obat`, `tgl_dt_resep`, `jlh`, `hrg_satuan`, `sisa_obat`, `ket_detail`) VALUES
+(12, '7', 'A10001', '2024-01-26 04:04:26', 3, 1100, 42, '-'),
+(11, '7', 'A10002', '2024-01-26 04:04:01', 10, 1090, 85, '-'),
+(9, '7', 'AA0003', '0000-00-00 00:00:00', 3, 15000, 95, '-'),
+(10, '7', 'A10002', '2024-01-26 03:55:08', 5, 1090, 95, '-');
 
 -- --------------------------------------------------------
 
@@ -253,7 +280,7 @@ CREATE TABLE `tb_user` (
   `email` varchar(50) NOT NULL,
   `level` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_user`
@@ -348,25 +375,25 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_bayar`
 --
 ALTER TABLE `tb_bayar`
-  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_periksa`
 --
 ALTER TABLE `tb_periksa`
-  MODIFY `kd_periksa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `kd_periksa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_resep`
 --
 ALTER TABLE `tb_resep`
-  MODIFY `kd_resep` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kd_resep` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_resep_detail`
 --
 ALTER TABLE `tb_resep_detail`
-  MODIFY `kd_detail_resep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `kd_detail_resep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
