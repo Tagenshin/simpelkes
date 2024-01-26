@@ -22,7 +22,7 @@
                 <div class="col-sm-12">
                     <div class="card-box table-responsive">
                         <p class="text-muted font-13 m-b-30">
-                            <a href="?hal=cetak_obat_keluar" target="_blank" class="btn btn-success btn-sm">Cetak</a>
+                            <a href="obat/cetak_obat_keluar.php" target="_blank" class="btn btn-success btn-sm">Cetak</a>
                         </p>
                         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                             <thead>
