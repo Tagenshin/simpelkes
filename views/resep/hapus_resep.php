@@ -1,7 +1,7 @@
 <?php
 include '../koneksi.php';
 $kd_resep = $_GET['kd_resep'];
-$data = mysqli_query($conn, "DELETE FROM tb_periksa WHERE kd_periksa='$kd_resep' ");
+$data = mysqli_query($conn, "DELETE FROM tb_resep WHERE kd_resep='$kd_resep' ");
 
 if ($data) {
   echo "
